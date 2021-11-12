@@ -7,7 +7,7 @@ const AddProduct = () => {
   const onSubmit = data => {
     console.log(data);
 
-    axios.post('http://localhost:5000/addProduct', data).then(res => {
+    axios.post('https://obscure-sierra-48545.herokuapp.com/addProduct', data).then(res => {
       if (res.data.insertedId) {
         alert('added successfully');
         reset();

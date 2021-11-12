@@ -13,46 +13,12 @@ import SwiperCore, { Pagination } from 'swiper';
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-const reviewss = [
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-  {
-    name: 'hello world',
-    dec: 'lorem20 lorem30as;dfjk asdoiasf aiosdfj apof dofiu sapdoif paosidif asddfoi asdofiuj uasdofi sadfopi dfsio  psdfoi sfad sdfpoi asdf dfsoi sdfpo adfujufd  poasidf sadfopi ufu asd asfdpoiujfru asdfpoi s spdofiu fsa asdfpoi  asdfoipu fsadfpioufdsa sa dfo;iasdf  usadf poidf sasdf fuif rf dfasoifse  fasd opifds   e usdfpoife wuasdf poiafji  sadfpoiasfe u  uasdfpoifsdaju er uasdfpoifdw u erwqpojhisef ui poisdf   u  djhiofds fjafioj aoief er u',
-  },
-];
 
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/reviews')
+    fetch('https://obscure-sierra-48545.herokuapp.com/reviews')
       .then(res => res.json())
       .then(data => {
         setReviews(data);

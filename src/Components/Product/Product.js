@@ -7,27 +7,29 @@ const Place = ({ product, index, handleBooking }) => {
   const { _id, name, img, description, price } = product;
 
   return (
-    <div>
-      <Col>
-        <Card className="bg-white shadow rounded border-0 p-1">
-          <Card.Img
-            className="card-image img-fluid rounded"
+    <Col md={4} sm={6}>
+    <Card className='places-img'>
+        <Card.Img
+            
             variant="top"
-            src={img}
-          />
-          <Card.Body>
-            <Card.Title>{name.slice(0, 60)}...</Card.Title>
-            <Card.Text>{description.slice(0, 110)}...</Card.Text>
-            <div className="d-flex justify-content-between">
-              <h4 className="mt-2">${price}</h4>
-              <Link className="btn-regular" to={`/orderDetails/${_id}`}>
-                Order Now
-              </Link>
+            style={{ maxHeight: '160px' }}
+            src={img} />
+        <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Text>
+                {description.slice(0, 100)}...
+            </Card.Text>
+            <div className="d-flex justify-content-between align-items-center">
+            <h4>${price}</h4>
+                <Link
+                    to={`/orderDetails/${_id}`}
+                    className="text-decoration-none btn btn-outline-dark d-flex align-items-center">
+                    Purchase
+                </Link>
             </div>
-          </Card.Body>
-        </Card>
-      </Col>
-    </div>
+        </Card.Body>
+    </Card>
+</Col>
   );
 };
 

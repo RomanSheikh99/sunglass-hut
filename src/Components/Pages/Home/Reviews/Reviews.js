@@ -57,8 +57,8 @@ const Reviews = () => {
                   initialRating={review.rating}
                   readonly
                 />
-                <h4 className="text-capitalize mb-2">{review.name}</h4>
-                <p>{review.description}</p>
+                <h4 className="text-capitalize my-3">{review.name}</h4>
+                <p>{review.description.slice(0, 160)}...</p>
               </div>
             </SwiperSlide>
           ))}

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -6,21 +7,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch,
 } from 'react-router-dom';
 import AddProduct from '../AddProduct/AddProduct';
@@ -30,18 +23,36 @@ import './Dashboard.css';
 import BookingDash from '../BookingDash/BookingDash';
 import GetReview from '../GetReview/GetReview';
 import Pay from '../Pay/Pay';
-// import { Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import { Button } from '@mui/material';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import useFirebase from '../../../hooks/useFirebase';
+import ManageProduct from '../ManageProduct/ManageProduct';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
-  const { logOut } = useAuth;
+  const { users,logOut } = useFirebase();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
+  const [admin, setAdmin] = useState({});
+  const[isAdmin, setIsAdmin]= useState(false)
 
+  
+  useEffect(() => {
+    fetch('https://obscure-sierra-48545.herokuapp.com/admins')
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(admin => {
+          if (admin.email === users.email) {
+            setAdmin(admin)
+          }
+        })
+      });
+  }, [users.email]);
+
+console.log(admin);
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -56,25 +67,28 @@ function Dashboard(props) {
         <li>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        {!admin.email && <li>
           <Link to={`${url}/myBooking`}>My Booking</Link>
-        </li>
-        <li>
+        </li>}
+        {!admin.email && <li>
           <Link to={`${url}/pay`}>Pay</Link>
-        </li>
-        <li>
-          <Link to={`${url}/allBooking`}>Manage All Booking</Link>
-        </li>
-        <li>
-          <Link to={`${url}/addProduct`}>Add Product</Link>
-        </li>
-        <li>
+        </li>}
+        {!admin.email &&   <li>
           <Link to={`${url}/getReview`}>Give A Review</Link>
-        </li>
+        </li>}
+        {admin.email &&<li>
+          <Link to={`${url}/allBooking`}>Manage All Booking</Link>
+        </li>}
+        {admin.email &&<li>
+          <Link to={`${url}/addProduct`}>Add Product</Link>
+        </li>}
+        {admin.email &&<li>
+          <Link to={`${url}/manageProduct`}>Manage Product</Link>
+        </li>}
+        {admin.email && <li>
+          <Link to={`${url}/makeAdmin`}>Make Admin</Link>
+        </li>}
       </ul>
-      {/* <Button onClick={logOut} className="btn login-btn button ms-2">
-        Logout
-      </Button> */}
       <Button
         sx={{ width: 1 }}
         onClick={logOut}
@@ -97,7 +111,7 @@ function Dashboard(props) {
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-          backgroundColor: '#CF102D',
+          backgroundColor: '#D8E8EB',
         }}
       >
         <Toolbar>
@@ -110,7 +124,7 @@ function Dashboard(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography className="text-black" variant="h6" noWrap component="div">
             Dashboard
           </Typography>
         </Toolbar>
@@ -120,14 +134,13 @@ function Dashboard(props) {
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
-        {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true, 
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
@@ -180,6 +193,12 @@ function Dashboard(props) {
           </Route>
           <Route path={`${path}/getReview`}>
             <GetReview />
+          </Route>
+          <Route path={`${path}/makeAdmin`}>
+            <MakeAdmin/>
+          </Route>
+          <Route path={`${path}/manageProduct`}>
+            <ManageProduct/>
           </Route>
         </Switch>
       </Box>

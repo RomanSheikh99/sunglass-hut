@@ -23,7 +23,7 @@ const Products = () => {
     return (
       <div className="container mt-5">
         <div className=" mb-5">
-          <h2 className="fw-bold">Curated For You </h2>
+          <h2 className="fw-bold">Our Product </h2>
         </div>
         <div>
           <Row xs={1} sm={2} md={3} className="g-4 bg-white rounded-3">

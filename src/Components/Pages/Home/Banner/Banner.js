@@ -12,7 +12,7 @@ const Banner = () => {
                         <div>
                             <h2>A BROAD RANGE OF TRENDY EYEWEAR </h2>
                             <p>Perfect look with a suitable pair of glasses. Put on eyewear & put on positive view mode.</p>
-                            <Link className="btn btn-dark" to="/projects">
+                            <Link className="btn btn-dark" to="/explore">
                                 Shop Now
                             </Link>
                         </div>

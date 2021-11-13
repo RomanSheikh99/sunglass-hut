@@ -5,7 +5,6 @@ const BookingDash = () => {
   const [bookings, setBookings] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isDeleted, setIsDeleted] = useState(null);
-  const [isUpdate, setIsUpdate] = useState(null);
 
   //get data
   useEffect(() => {
@@ -79,12 +78,11 @@ const BookingDash = () => {
         <div className="row">
           {bookings.map(booking => (
             <div key={booking._id} className=" text-start col-md-4 mt-3   p-2">
-              {/* <img className="w-25 rounded" src={booking.img} alt="" /> */}
               <div className=" ms-3">
                 <h5>{booking.name}</h5>
                 <h6>
                   Status:{' '}
-                  {booking.status == 'pending' ? (
+                  {booking.status === 'pending' ? (
                     <span className="text-danger"> {booking.status}</span>
                   ) : (
                     <span className="text-success"> {booking.status}</span>

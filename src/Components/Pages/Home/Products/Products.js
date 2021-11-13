@@ -21,7 +21,7 @@ const Products = () => {
     );
   } else {
     return (
-      <div className="container mt-5">
+      <div className="container my-5">
         <div className=" mb-5">
           <h2 className="fw-bold">Our Product </h2>
         </div>

@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
@@ -45,7 +44,6 @@ function App() {
               <NotFound></NotFound>
             </Route>
           </Switch>
-          {/* <Footer></Footer> */}
         </Router>
       </AuthProvider>
     </div>

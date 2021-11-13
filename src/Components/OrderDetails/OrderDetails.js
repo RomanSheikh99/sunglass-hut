@@ -45,7 +45,7 @@ const OrderDetails = () => {
   };
 
   return (
-    <div className=" container  mt-2">
+    <div className=" container  my-5">
       <div className="row">
         <div className=" col-md-8 d-flex flex-column ">
           <img

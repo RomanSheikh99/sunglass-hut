@@ -7,7 +7,7 @@ const NotFound = () => {
     document.title = '404 page not found';
   }, []);
   return (
-    <div>
+    <div className='d-flex justify-content-center align-items-center my-3'>
       <div>
         <img className=" img-fluid" src={notFound} alt="" />
       </div>

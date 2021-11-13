@@ -23,7 +23,6 @@ import './Dashboard.css';
 import BookingDash from '../BookingDash/BookingDash';
 import GetReview from '../GetReview/GetReview';
 import Pay from '../Pay/Pay';
-import useAuth from '../../../hooks/useAuth';
 import { Button } from '@mui/material';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import useFirebase from '../../../hooks/useFirebase';
@@ -37,7 +36,6 @@ function Dashboard(props) {
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
   const [admin, setAdmin] = useState({});
-  const[isAdmin, setIsAdmin]= useState(false)
 
   
   useEffect(() => {
@@ -207,10 +205,6 @@ console.log(admin);
 }
 
 Dashboard.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
   window: PropTypes.func,
 };
 

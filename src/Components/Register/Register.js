@@ -4,11 +4,10 @@ import {
   CircularProgress,
   Container,
   Grid,
-  Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
-import loginImage from '../../images/login.png';
+import loginImage from '../../images/register.png';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 const Register = () => {

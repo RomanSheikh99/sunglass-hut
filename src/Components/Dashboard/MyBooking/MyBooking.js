@@ -8,7 +8,6 @@ const MyBooking = () => {
   const [isDeleted, setIsDeleted] = useState(null);
   const { users } = useAuth();
   const email = users.email;
-  const pending = 'pending';
 
   //get data
   useEffect(() => {
@@ -64,7 +63,7 @@ const MyBooking = () => {
                 <h4>${booking.price}</h4>
                 <h5>
                   Status:
-                  {booking.status == 'pending' ? (
+                  {booking.status === 'pending' ? (
                     <span className="text-danger"> {booking.status}</span>
                   ) : (
                     <span className="text-success"> {booking.status}</span>

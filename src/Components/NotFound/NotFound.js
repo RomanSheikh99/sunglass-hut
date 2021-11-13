@@ -9,11 +9,15 @@ const NotFound = () => {
   return (
     <div className='d-flex justify-content-center align-items-center my-3'>
       <div>
-        <img className=" img-fluid" src={notFound} alt="" />
+        <div>
+          <img className=" img-fluid" src={notFound} alt="" />
+        </div>
+        <div className='d-flex justify-content-center align-items-center my-2'>
+          <Link to="/home" className="btn btn-dark">
+            GO Back
+          </Link>
+        </div>
       </div>
-      <Link to="/home" className="btn-regular">
-        GO Back
-      </Link>
     </div>
   );
 };
